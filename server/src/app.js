@@ -16,8 +16,27 @@ sequelize.sync({force: false}).then(() => {
     })
 })
 
+app.get('/status', function (req, res){
+    res.send('Hello nodejs server')
+})
 
+app.get('/hello/:person', function (req,res) {
+    console.log('hello - ' + req.params.person)
+    res.send('sey hello with ' + req.params.person)
+})
 
+// get user by id
+app.get('/user/:userId', function (req, res) {
+    res.send('ดูข้อมูลผู้ใช้งาน: '+ req.params.userId)
+    })
+// get all user
+app.get('/users', function (req, res) {
+    res.send('เรียกข้อมูลผู้ใช้งานทั้งหมด')
+})
+// get lastuser
+app.get('/lastuser', function (req, res) {
+    res.send('ID สุดท้าย: ' + JSON.stringify(req.body))
+})
 // create user
 app.post('/user/', function (req, res) {
     res.send('ทำการสร้างผู้ใช้งาน: ' + JSON.stringify(req.body))
