@@ -9,7 +9,7 @@ const sequelize = new Sequelize (
     config.db.password,
     config.db.options
 )
-
+ 
 fs.readdirSync(__dirname)
     .filter((file) =>
         file !== 'index.js'
