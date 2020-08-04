@@ -32,14 +32,14 @@ module.exports = {
 
             if(!user) {
                 return res.status(403).send({
-                    error: 'User not found'
+                    error: 'User/User not found'
                 })
             }
 
             const isPasswordValid = await user.comparePassword(password)
             if (!isPasswordValid) {
                 return res.status(403).send({
-                    error: 'Password not correct'
+                    error: 'User/Password not correct'
                 })
             }
 
